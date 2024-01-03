@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Testing REST API</title>
+        <style>
+
+            img{
+                width: 200px;
+                height: auto;
+                border-radius: 20px;
+            }
+            h2{
+                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            }
+
+        </style>
+        <script type="module">
+
+            fetch("http://localhost:1234/movies")
+            .then(res => res.json())
+            .then(movies =>{
+                const html = movies.map(movie =>{
+                    return `
+                        <article data-id="${movie.id}">
+                            <h2>${movie.title}</h2>
+                            <img src="${movie.poster}" alt="${movie.title}">
+                            <p>${movie.genre}</p>    
+                        </article>
+                    `
+                }).join(" ")
+
+                document.querySelector("main").innerHTML = html;
+
+            })
+
+        </script>
+    </head>
+    <body>
+        <main>
+
+        </main>
+    </body>
+</html>

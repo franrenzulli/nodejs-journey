@@ -1,0 +1,36 @@
+### Search all movies
+
+GET http://localhost:1234/movies
+
+### Search a movie by id
+
+GET http://localhost:1234/movies/241bf55d-b649-4109-af7c-0e6890ded3fc
+
+### Filter movies by genre
+
+GET http://localhost:1234/movies?genre=Action
+
+### Create a movie with POST
+
+POST http://localhost:1234/movies
+Content-Type: application/json
+
+{
+    "title": "The Godfather",
+    "year": 1996,
+    "director": "Ridley Scott", 
+    "duration": 123,
+    "poster": "-",
+    "genre": ["Drama", "Crime"],
+    "rate": 9.3
+}
+
+### Update a movie with PATCH  
+
+PATCH http://localhost:1234/movies/241bf55d-b649-4109-af7c-0e6890ded3fc 
+Content-Type: application/json
+
+{
+    "title": "Chicken Little",
+    "year": 1991
+}
